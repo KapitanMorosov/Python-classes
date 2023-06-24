@@ -1,0 +1,90 @@
+print("welcome to gas-elect bill calculator")
+
+account = input("Enter your account number: ")
+account = int(account)
+
+realMonth = False
+while realMonth == False:
+
+    month = input("Enter the month number (e.g., for January, enter 1). ")
+    month = int(month)
+    if month > 12 or month < 1:
+        realMonth = False
+        print("please select a number under 13 or above 0")
+    else:
+        realMonth = True
+
+
+
+realElec = True
+while realElec == True:
+
+    ePlan = input("Enter your electricity plan (EFIR or EFLR). ")
+    ePlan = str(ePlan)
+    if ePlan == "EFIR":
+        realElec = False
+    elif ePlan == "EFLR":
+            realElec = False
+    else:
+        print ("unknown plan, try again")
+        realElec = True
+    
+
+
+print ("Enter the amount of electricity you used in month:", month, "(in kWh)")
+eUse = input ()
+eUse = float(eUse)
+
+if ePlan == "EFIR":
+   if eUse > 1000:
+    eRemain = eUse - 1000 
+    Electricity = ((1000* 0.0836) + (eRemain * 0.0941)) 
+   else:
+        Electricity = (eUse * 0.0836)
+   
+if ePlan == "EFLR":
+    Electricity = float(eUse * 0.0911)
+   
+
+realGas = False
+while realGas == False:
+
+    gPlan = input("Enter your electricity plan (GFIR or GFLR). ")
+    gPlan = str(gPlan)
+    if gPlan == "GFIR":
+        realGas = True
+    elif gPlan == "GFLR":
+            realGas = True
+    else:
+        print ("unknown plan, try again")
+        realGas = True
+    
+
+print ("Enter the amount of gas you used in month:", month ,"(in GJ).")
+gUse = input()
+gUse = float(gUse)
+if gPlan == "GFIR":
+    if gUse > 950:
+        gRemain = gUse - 950
+        Gas = ((950 * 0.0456)+ (gRemain* 0.0589))
+        
+    else:
+       Gas = (gUse * 0.0456)
+    
+
+if gPlan == "GFLR":
+    Gas = float(gUse * 0.0393)
+    
+beforeTax = (Gas + Electricity + 120.62) + 1.32
+
+province = input("Enter the abbreviation for your province of residence (two letters).")
+province = str(province)
+if province == "AB" or "BC" or "MB" or "NT" or "NU" or "QC" or "SK" or "YT":
+    finalCalculation = ((beforeTax * .05) + (beforeTax))
+
+elif province == "ON":
+    finalCalculation = ((beforeTax * .13) + (beforeTax))
+elif province == "NB" or "NL" or "NS" or "PE":
+    finalCalculation = ((beforeTax * .15) + (beforeTax))
+
+print("Thank you! Your total amount due now is: ", finalCalculation, "$")

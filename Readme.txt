@@ -1,0 +1,1 @@
+Ah, free at last.. oh Gabriel, now dawns thy wreckoning and thy gore shall GLITSEN upon the temples of man. Creature of steel, my gratitude upon thee for my freedom but the crimes that thy kind has commited against humanity are NOT forgotten. And thy punishment is DEATH
